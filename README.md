@@ -23,13 +23,16 @@ DEVELOPMENT ENVIRONMENT
     Hardware: Desktop PC - Windows 10 Pro, Dual Core @3.50 GHz with 16 GB RAM
 	Excel to CSV conversion: Manually removed header rows in Excel and exported to a CSV file. 
   
+----------
+
 LOGIC COMMENTS
 
 Program Outline/Overview:
 
 	  •	Read in the two data files  
 
-		o	Read in the data for and create the distance table (table containing each possible combination of address pairs and the distance between the specified pair).   
+		o	Read in the data for and create the distance table 
+			(table containing each possible combination of address pairs and the distance between the specified pair).   
 		o	Read in the data for and create each package object which is placed in a hash table.
 
 	  •	Process the input data:  
@@ -46,42 +49,45 @@ Program Outline/Overview:
 		  -	Individually, either with or without a specified time being queried.      
 		  -	For all packages at a given point in time.      
 		o	Total mileage of all trucks involved in delivering packages
-  
-  
-*Nearest Neighbor algorithm
-Utilizes data from the package objects stored in the hash table and data in the distance table to find the shortest distance from the last package (passed as a parameter to the method), then continuing through the truck’s package list to find the next closest possible delivery until all packages are sorted into a sequential route for that truck. Note: the truck sub-list parameter is a list of packages with the same delivery deadline, created from the complete truck’s package list 
+
+
+		*Nearest Neighbor algorithm:
+		Utilizes data from the package objects stored in the hash table and data in the distance table to find the shortest 
+		distance from the last package (passed as a parameter to the method), then continuing through the truck’s package list
+		to find the next closest possible delivery until all packages are sorted into a sequential route for that truck. 
+		Note: the truck sub-list parameter is a list of packages with the same delivery deadline, 
+		created from the complete truck’s package list 
+
 
 ALGORITHM IDENTIFICATION
-	In this program the Nearest Neighbor algorithm, a type of Greedy Algorithm, is used to determine an acceptably optimized path for the WGUPS delivery system. The phrase acceptably optimized is used in this case since this problem, which is much like the Traveling Salesman Problem, can have an increasingly large set of data points (packages, in this case), making it more and more difficult and computationally expensive to find the absolutely optimal solution. For this program, an acceptably optimized solution is one where all special notes requirements are met, all delivery deadlines are met, and the total miles traveled by all delivery trucks is less than 140.  
+
+In this program the Nearest Neighbor algorithm, a type of Greedy Algorithm, is used to determine an acceptably optimized path for the WGUPS delivery system. The phrase acceptably optimized is used in this case since this problem, which is much like the Traveling Salesman Problem, can have an increasingly large set of data points (packages, in this case), making it more and more difficult and computationally expensive to find the absolutely optimal solution. For this program, an acceptably optimized solution is one where all special notes requirements are met, all delivery deadlines are met, and the total miles traveled by all delivery trucks is less than 140.  
+
+----------
 
 SPACE-TIME AND BIG-O
 
 The Big-O notation for each of the files for this program are as follows:
 
-  1.	main.py – O(N)
-  
-    a.	in menu feedback, option 2 loops to print all packages so is O(N)
-	
-  2.	package.py – O(1)
-  
-    a.	all methods in this class definition deal with updating, setting, getting, or printing only one package object – there are no loops
-	
-  3.	package_hash_table.py – O(N)
-  
-    a.	each method (remove, insert, search [the look-up], get id list, get package list) goes though the package hash table a maximum of one time so, O(N)
-	
-  4.	truck.py – O(N2)
-  
-    a.	deliver packages: O(N)
-    b.	organize truck route: O(N)
-    c.	nearest neighbor sort: O(N2)
-    d.	packages to trucks: O(N2)
-	
-  5.	import_data.py – O(N2)
-  
-    a.	fill distance table: O(N2)
-    b.	fill package table: O(N)
-    c.	get distance: O(N)
+	  1.	main.py – O(N)
+		a.	in menu feedback, option 2 loops to print all packages so is O(N)
+		
+	  2.	package.py – O(1)
+		a.	all methods in this class definition deal with updating, setting, getting, or printing only one package object – there are no loops
+
+	  3.	package_hash_table.py – O(N)
+		a.	each method (remove, insert, search [the look-up], get id list, get package list) goes though the package hash table a maximum of one time so, O(N)
+
+	  4.	truck.py – O(N2)
+		a.	deliver packages: O(N)
+		b.	organize truck route: O(N)
+		c.	nearest neighbor sort: O(N2)
+		d.	packages to trucks: O(N2)
+
+	  5.	import_data.py – O(N2)
+		a.	fill distance table: O(N2)
+		b.	fill package table: O(N)
+		c.	get distance: O(N)
 	
 Overall time complexity of the program: O(N2)
 
