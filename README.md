@@ -58,6 +58,7 @@ The Big-O notation for each of the files for this program are as follows:
     b.	fill package table: O(N)
     c.	get distance: O(N)
 Overall time complexity of the program: O(N2)
+
 WGU STUDENTS: COPYING THIS WILL RESULT IN A > 30% SIMILARITY MATCH TO MY PAPER. DO YOUR OWN WORK!!
 
 SOFTWARE EFFICIENCY AND MAINTAINABILITY
@@ -77,6 +78,7 @@ OTHER POSSIBLE ALGORITHMS AND THEIR DIFFERENCES
   The two other possible algorithms I will be looking at are Dijkstra’s Shortest Path algorithm and the Brute Force algorithm. Dijkstra’s Shortest Path algorithm is like the Nearest Neighbor algorithm except it implements a more complex graph data structure which includes the edge weight (distance) and the predecessor pointer in addition to the package data associated with each vertex. The Brute Force algorithm can be implemented with the same data structures to find every possible iteration of the delivery route and then compare them all to find the shortest route. They would meet the program’s requirements by coming up with either a reasonably short or the shortest (respectively) possible path for the given packages on a truck.
   Dijkstra’s Shortest Path algorithm  is like the Nearest Neighbor algorithm that is implemented in that it may not find the most optimized path, but it finds one that is reasonably optimized without using a great deal of computational resources. However, its implementation is more complex than the Nearest Neighbor because it uses a graph class object which tracks not only the ID/package data associated with a vertex, but also maintains a predecessor vertex and the distance as an edge weight. For Dijkstra’s, once the smallest edge weight of adjacent vertices is found, the information regarding the path order and path length are updated and maintained in the graph object. However, for the Nearest Neighbor the path order is stored by creating an ordered list of ID/package pairs and the total distance of the route must be calculated as the deliveries are made. 
 	The Brute Force algorithm is expensive computationally and has the potential to also be spatially expensive. Since brute force determines every possible delivery route for a truck’s 16 packages, it uses a lot of computational time creating all the possible routes for a full truck. It could also use a great deal of memory if the algorithm creates all the routes before computing and comparing their lengths. Even if the comparison of the route lengths is done as the routes are created by comparing only two routes at a time and discarding the longer of the two, thus keeping memory use to a minimum, the computation of all of those routes and their total distance is more expensive than the nearest neighbor which searches the distance table for the next closest delivery address from the remaining packages in the truck list and builds an reasonably well-ordered list of packages.
+
 WGU STUDENTS: COPYING THIS WILL RESULT IN A > 30% SIMILARITY MATCH TO MY PAPER. DO YOUR OWN WORK!!
     
 SELF-ADJUSTING DATA STRUCTURES
@@ -93,6 +95,7 @@ DATA STRUCTURE EFFICIENCY
 DATA STRUCTURE OVERHEAD & IMPLICATIONS
 	There is a direct relationship between the number of packages being delivered and the space used to store said packages. For every package, the package’s ID and the package’s object location is stored as a key-value pair in a bucket of the hash table. No matter how many [ID, package] pairs are added to the hash table, each requires the same amount of space be added to the end of their corresponding list.
 	In this program, the use of the hash table is not related to neither the trucks nor the package’s address. When the user looks up either a single package or a list of all packages in the user interface, the request runs directly though the hash table. Because of this, changes to the number of trucks or cities should not affect look-up time – only a change in the number of packages would affect a change.
+
 WGU STUDENTS: COPYING THIS WILL RESULT IN A > 30% SIMILARITY MATCH TO MY PAPER. DO YOUR OWN WORK!!
 
 OTHER POSSIBLE DATA STRUCTURES
@@ -116,4 +119,5 @@ HOW WOULD I APPROACH THIS DIFFERENTLY?
    2. The implementation of the distance table was the first thing I worked on for this program and could have been much better. If implemented with a table-like structure like the package hash table was, the search for distance values could be greatly reduced from their current liner search. This is a good example on how a little work up front, or in the initialization of the program can save much time and energy in later parts of the program. This is especially true if the number of packages to be delivered is greatly increased.
    3. Another change I would make to the initial intake of data is to reformat the delivery deadline for each package to a 24-hour, or military time, format. There are a small number of time comparisons with the delivery deadline piece of data as the packages are being sorted into trucks and into routes. Having the delivery deadline in the package object in a 24-hour format would make the coding for these comparisons much easier.
    4. Finally, I would alter the way the packages are sorted “onto trucks”. This is because I believe the optimization of the routes could be better. However, this is not something I have yet put a great deal of thought into how I would change & implement this.
-WGU STUDENTS: COPYING THIS WILL RESULT IN A > 30% SIMILARITY MATCH TO MY PAPER. DO YOUR OWN WORK!!
+
+WGU STUDENTS: COPYING THIS WILL RESULT IN A > 30% SIMILARITY MATCH TO MY PAPER. DO YOUR OWN WORK!! (Yes, about this I am a jerk. You can learn this just like I did!)
