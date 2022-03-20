@@ -4,6 +4,7 @@ This is an altered and abbreviated version of the paper that was required to be 
 
 WGU STUDENTS: COPYING THIS WILL RESULT IN A > 30% SIMILARITY MATCH TO MY PAPER. DO YOUR OWN WORK!!
 
+----------
 
 The WGUPS Scenario
 
