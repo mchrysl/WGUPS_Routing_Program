@@ -13,6 +13,7 @@ The WGUPS Scenario
 ----------
 
 ******stop reading here if you don't need all of the computer science-y details******
+
 ******WGU STUDENTS: COPYING THIS WILL RESULT IN A > 30% SIMILARITY MATCH TO MY PAPER. DO YOUR OWN WORK!!******
 
 
